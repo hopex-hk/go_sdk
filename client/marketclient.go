@@ -5,10 +5,10 @@ import (
 	"errors"
 	"strconv"
 
-	"hopex-hk/go_sdk/core"
-	"hopex-hk/go_sdk/core/logging/zaplogger"
-	coremodel "hopex-hk/go_sdk/core/model"
-	"hopex-hk/go_sdk/model"
+	"github.com/hopex-hk/go_sdk/core"
+	"github.com/hopex-hk/go_sdk/core/logging/zaplogger"
+	coremodel "github.com/hopex-hk/go_sdk/core/model"
+	"github.com/hopex-hk/go_sdk/model"
 )
 
 type MarketClient struct {

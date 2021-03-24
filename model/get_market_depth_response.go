@@ -1,8 +1,8 @@
 package model
 
 import (
+	"github.com/hopex-hk/go_sdk/core/model"
 	"github.com/shopspring/decimal"
-	"hopex-hk/go_sdk/core/model"
 )
 
 type GetMarketDepthResponse struct {
@@ -24,7 +24,7 @@ type OrderBookItem struct {
 	PriceD       decimal.Decimal `json:"priceD"`
 	Price        string          `json:"orderPrice"`
 	Quantity     int64           `json:"orderQuantity"`
-	HasOpenOrder int             `json:"Exist"`
+	HasOpenOrder int             `json:"exist"`
 }
 
 func NewGetMarketDepthResponse() *GetMarketDepthResponse {

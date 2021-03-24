@@ -1,4 +1,4 @@
-package accountclientexample
+package homeclientexample
 
 import (
 	"encoding/json"
@@ -16,9 +16,8 @@ func init() {
 }
 
 func RunAllExample() {
-	GetUserInfo()
-	GetWalletInfo()
-	GetAccountHistory()
+	GetIndexStatistics()
+	GetIndexNotify()
 }
 
 func logRes(res interface{}) {
@@ -30,23 +29,10 @@ func logRes(res interface{}) {
 	logger.Info("res: %s", string(bs))
 }
 
-func GetUserInfo() {
-	client := new(client.AccountClient).InitByDefault(config.DemoConfig)
+func GetIndexStatistics() {
+	client := new(client.HomeClient).InitByDefault(config.DemoConfig)
 
-	res, err := client.GetUserInfo()
-
-	if err != nil {
-		logger.Error("has error: %+v", err)
-		return
-	}
-
-	logRes(res)
-}
-
-func GetWalletInfo() {
-	client := new(client.AccountClient).InitByDefault(config.DemoConfig)
-
-	res, err := client.GetWalletInfo()
+	res, err := client.GetIndexStatistics()
 
 	if err != nil {
 		logger.Error("has error: %+v", err)
@@ -56,10 +42,11 @@ func GetWalletInfo() {
 	logRes(res)
 }
 
-func GetAccountHistory() {
-	client := new(client.AccountClient).InitByDefault(config.DemoConfig)
+func GetIndexNotify() {
+	client := new(client.HomeClient).InitByDefault(config.DemoConfig)
 
-	res, err := client.GetAccountHistory(1, 2)
+	page, limit := 1, 20
+	res, err := client.GetIndexNotify(page, limit)
 
 	if err != nil {
 		logger.Error("has error: %+v", err)

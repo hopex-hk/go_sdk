@@ -3,9 +3,9 @@ package zaplogger
 import (
 	"os"
 
+	"github.com/hopex-hk/go_sdk/core/logging"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"hopex-hk/go_sdk/core/logging"
 )
 
 var sugarLogger *zap.SugaredLogger

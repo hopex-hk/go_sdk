@@ -4,9 +4,9 @@ import (
 	"errors"
 	"strconv"
 
-	"hopex-hk/go_sdk/core"
-	"hopex-hk/go_sdk/core/logging/zaplogger"
-	"hopex-hk/go_sdk/model"
+	"github.com/hopex-hk/go_sdk/core"
+	"github.com/hopex-hk/go_sdk/core/logging/zaplogger"
+	"github.com/hopex-hk/go_sdk/model"
 )
 
 type HomeClient struct {

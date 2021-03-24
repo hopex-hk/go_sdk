@@ -1,4 +1,4 @@
-module hopex-hk/go_sdk
+module github.com/hopex-hk/go_sdk
 
 go 1.16
 

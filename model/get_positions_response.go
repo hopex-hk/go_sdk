@@ -1,8 +1,8 @@
 package model
 
 import (
+	"github.com/hopex-hk/go_sdk/core/model"
 	"github.com/shopspring/decimal"
-	"hopex-hk/go_sdk/core/model"
 )
 
 type GetPositionsResponse struct {

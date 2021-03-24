@@ -1,6 +1,6 @@
 package model
 
-import "hopex-hk/go_sdk/core/model"
+import "github.com/hopex-hk/go_sdk/core/model"
 
 type GetTradesResponse struct {
 	*model.ApiResponseModel

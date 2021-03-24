@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"hopex-hk/go_sdk/core/logging"
-	"hopex-hk/go_sdk/core/logging/zaplogger"
-	"hopex-hk/go_sdk/core/utils"
+	"github.com/hopex-hk/go_sdk/core/logging"
+	"github.com/hopex-hk/go_sdk/core/logging/zaplogger"
+	"github.com/hopex-hk/go_sdk/core/utils"
 )
 
 type DefaultHttpRequester struct {
@@ -51,6 +51,7 @@ func (req *DefaultHttpRequester) newUrl(path string, queries map[string]string) 
 			urls.Add(key, value)
 		}
 	}
+	urls.Add("culture", "en")
 
 	url.RawQuery = urls.Encode()
 
@@ -106,7 +107,7 @@ func (req *DefaultHttpRequester) Get(path string, queries map[string]string, aut
 	if req.logger.Enable(logging.DEBUG) {
 		req.logger.Debug("raw res: %s", string(result))
 	}
-	req.logger.Info("%s %d ms", urlStr, time.Since(start).Milliseconds())
+	req.logger.Info("get %s %d ms", urlStr, time.Since(start).Milliseconds())
 
 	err = json.Unmarshal(result, response)
 	if err != nil {
@@ -163,7 +164,7 @@ func (req *DefaultHttpRequester) Post(path string, body []byte, queries map[stri
 	if req.logger.Enable(logging.DEBUG) {
 		req.logger.Debug("raw res: %s", string(result))
 	}
-	req.logger.Info("%s %d ms", urlStr, time.Since(start).Milliseconds())
+	req.logger.Info("post %s %d ms", urlStr, time.Since(start).Milliseconds())
 
 	err = json.Unmarshal(result, response)
 	if err != nil {
