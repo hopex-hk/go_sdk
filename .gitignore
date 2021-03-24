@@ -25,4 +25,4 @@ config/key.go
 
 core/unit_test_key.go
 example/config/config.go
-!example/config
+!example/config/.gitkeep
