@@ -16,18 +16,18 @@ The SDK is compiled by Go 1.16, you can import this SDK in your Golang project:
 package main
 
 import (
-  "fmt"
-  "github.com/hopex-hk/go_sdk/core"
-  "github.com/hopex-hk/go_sdk/client"
+	"fmt"
+	"github.com/hopex-hk/go_sdk/client"
+	"github.com/hopex-hk/go_sdk/core"
 )
 
-func main(){
-	cfg:= core.NewConfig(
-			"https://api1.hopex.com",
-			"your app key",
-			"your app secret",
-			"{your app name}/{app version}",
-		)
+func main() {
+	cfg := core.NewConfig(
+		"https://api1.hopex.com",
+		"your app key",
+		"your app secret",
+		"{your app name}/{app version}",
+	)
 
 	// Get the user info from Hopex server and print on console
 	client := new(client.AccountClient).InitByDefault(cfg)
@@ -35,10 +35,11 @@ func main(){
 
 	if err != nil {
 		fmt.Printf("has error: %+v", err)
-	}else{
+	} else {
 		fmt.Printf("get userinfo: %+v", res)
 	}
 }
+
     
 ```
 
