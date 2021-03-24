@@ -20,7 +20,7 @@ import (
 )
 
 cfg:= core.NewConfig(
-		"https://devapi1.hopex.com",
+		"https://api1.hopex.com",
 		"your app key",
 		"your app secret",
 		"{your app name}/{app version}",
@@ -53,39 +53,38 @@ This is the folder and package structure of SDK source code and the description
   - **model**: The common data model
   - **utils**: Provide common utils
 - **example**: The examples how to use **core** and **client** to access API and read response.
+
 ### Run examples
 
 This SDK provides examples that under **example** folder, if you want to run the examples to access private data, you need below additional steps:
 
 1. Create an **API Key** first from [Hopex official website](https://web.hopex.com)
-2. Create **config.go** into your **example** folder (package). The purpose of this file is to prevent submitting SecretKey into repository by accident, so this file is already added in the *.gitignore* file. 
-
+2. Create **config.go** into your **example/config** folder (package). The purpose of this file is to prevent submitting SecretKey into repository by accident, so this file is already added in the *.gitignore* file. 
+3. **cd example; go run ./main.go** ([view source code](https://github.com/hopex-hk/go_sdk/tree/main/example))
 ```go
 // config.go file
-package core
+package config
 
 import "github.com/hopex-hk/go_sdk/core"
 
-var demoConfig *Config
+var DemoConfig *core.Config
 
-func GetDemoConfig() *Config {
-	if demoConfig != nil {
-		return unitTestConfig
-	}
-	demoConfig = core.NewConfig(
-		"https://devapi1.hopex.com",
+func init() {
+	DemoConfig = core.NewConfig(
+		"https://api1.hopex.com",
 		"your app key",
 		"your app secret",
 		"{your app name}/{app version}",
 	)
-
-	return demoConfig
 }
+
 ```
 
 If you don't need to access private data, you can ignore the secret key.
 
 Regarding the difference between public data and private data you can find details in [Client](#Client) section below.
+
+
 
 ### Client
 
@@ -93,12 +92,12 @@ In this SDK, the client is the object to access the Hopex API. In order to isola
 
 All the client is listed in below table. Each client is very small and simple, it is only responsible to operate its related data, you can pick up multiple clients to create your own application based on your business.
 
-| Data Category   | Client                            | Privacy | Access Type  |
-| --------------- | --------------------------------- | ------- | ------------ |
-|Account|AccountClient|Private|Rest|
-|Home|HomeClient|Public|Rest|
-|Market|MarketClient|Public|Rest|
-|Trade|	TradeClient|	Private|	Rest|
+| Data Category | Client        | Privacy | Access Type |
+| ------------- | ------------- | ------- | ----------- |
+| Account       | AccountClient | Private | Rest        |
+| Home          | HomeClient    | Public  | Rest        |
+| Market        | MarketClient  | Public  | Rest        |
+| Trade         | TradeClient   | Private | Rest        |
 
 ### Logging
 

@@ -24,4 +24,4 @@ config/key.go
 .history/
 
 core/unit_test_key.go
-example/config.go
+example/config/config.go
