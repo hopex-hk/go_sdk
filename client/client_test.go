@@ -56,6 +56,24 @@ func Test_GetWalletInfo(t *testing.T) {
 	t.Log(string(resbs))
 }
 
+func Test_GetWalletInfoV2(t *testing.T) {
+	client := new(AccountClient).InitByDefault(cfg)
+
+	res, err := client.GetWalletInfoV2()
+
+	if err != nil {
+		t.Errorf("has error: %v", err)
+		return
+	}
+
+	resbs, err := json.Marshal(res)
+	if err != nil {
+		t.Errorf("has error: %v", err)
+		return
+	}
+	t.Log(string(resbs))
+}
+
 func Test_GetAccountHistory(t *testing.T) {
 	client := new(AccountClient).InitByDefault(cfg)
 

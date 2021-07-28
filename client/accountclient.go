@@ -51,6 +51,18 @@ func (c *AccountClient) GetWalletInfo() (*model.WalletInfo, error) {
 	return res.Data, nil
 }
 
+//get account wallet information v2
+func (c *AccountClient) GetWalletInfoV2() (*model.WalletInfo, error) {
+	res := model.NewGetWalletResponse()
+	err := c.requester.Get("/api/v2/wallet", nil, true, res)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return res.Data, nil
+}
+
 //get account history
 //doc: https://hopex-hk.github.io/docs/contract/v1/cn/#8e62101ca9
 func (c *AccountClient) GetAccountHistory(page, limit int) (*model.AccountHistoryList, error) {
